@@ -1,0 +1,23 @@
+<tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600" id="<%= dom_id kosan %>">
+  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= kosan.nama %>
+  </th>
+  <td class="px-6 py-4">
+    <%= kosan.description %>
+  </td>
+  <td class="px-6 py-4">
+    <%= kosan.alamat %>
+  </td>
+  <td class="px-6 py-4">
+    <%= kosan.provinsi %>
+  </td>
+  <td class="px-6 py-4">
+    <%= kosan.created_at.strftime("%d %B %y") %>
+  </td>
+  <td class="px-6 py-4">
+    <%= kosan.updated_at.strftime("%d %B %y") %>
+  </td>
+  <td class="px-6 py-4 text-right">
+    <%= link_to "Lihat", kosan, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+  </td>
+</tr>

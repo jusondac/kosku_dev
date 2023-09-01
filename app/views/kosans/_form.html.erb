@@ -1,0 +1,54 @@
+<%= form_with(model: kosan, class: "contents") do |form| %>
+  <div class="flex w-full">
+    <div class=" w-1/2 p-4 dark:placeholder:text-gray-700">
+      <% if kosan.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+          <h2><%= pluralize(kosan.errors.count, "error") %> prohibited this kosan from being saved:</h2>
+          <ul>
+            <% kosan.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="my-5">
+        <%= form.text_field :nama, class: "border-none outline-none bg-gray-300 dark:bg-gray-800 px-3 py-2 shadow-2xl w-full", placeholder: 'Nama kosan' %>
+      </div>
+      <div class="my-5">
+        <%= form.text_area :description, rows: 4, class: "border-none outline-none bg-gray-300 dark:bg-gray-800 px-3 py-2 shadow-2xl w-full", placeholder: 'Deskripsi' %>
+      </div>
+      <div class="my-5">
+        <%= form.text_area :rules, rows: 4, class: "border-none outline-none bg-gray-300 dark:bg-gray-800 px-3 py-2 shadow-2xl w-full", placeholder: 'Aturan' %>
+      </div>
+      <div class="my-5">
+        <%= form.text_field :alamat, class: "border-none outline-none bg-gray-300 dark:bg-gray-800 px-3 py-2 shadow-2xl w-full", placeholder: 'Alamat' %>
+      </div>
+    </div>
+    <div class="w-1/2 p-4 dark:placeholder:text-gray-700" data-controller="province-regencies">
+      <div class="my-5">
+        <select data-province-regencies-target="provinceSelect" 
+        data-action="change->province-regencies#provinceSelectChanged"
+        class="dark:bg-gray-800 border-none w-full shadow-2xl"
+        name="kosan[provinsi]"
+        >
+          <option value="">Provinsi</option>
+          <% @provinsi.each do |country| %>
+            <option value="<%= country.id %>"><%= country.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="my-5" >
+        <select 
+        data-province-regencies-target="regencySelect" 
+        name="kosan[kota_kabupaten]"
+        id="regency"
+        class="w-full dark:bg-gray-800 dark:text-white border-none shadow-2xl">
+          <option class="bg-gray-900">Kota/Kabupaten</option>
+        </select>
+      </div>
+      <div class="inline">
+        <%= form.submit "Buat Kosan", class: "border-none outline-none bg-gray-300 dark:bg-gray-800 px-3 py-2 shadow-2xl inline-block font-medium cursor-pointer w-full" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module KosansHelper
+end

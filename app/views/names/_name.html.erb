@@ -1,0 +1,12 @@
+<div id="<%= dom_id name %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Type:</strong>
+    <%= name.type %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this name", name, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this name', edit_name_path(name), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
