@@ -5,8 +5,6 @@ class CreateKosans < ActiveRecord::Migration[7.0]
       t.text :description
       t.text :rules
       t.string :alamat
-      t.string :provinsi
-      t.string :kabupaten_kota
 
       t.timestamps
     end

@@ -15,3 +15,13 @@ if CodeArea.all.empty?
     CodeArea.create(code: regency[0], province_id: province.id, name: regency[2])
   end
 end
+
+if Kosan.all.empty?
+  10.times do
+    Kosan.create(
+      nama: Faker::Name.first_name,
+      alamat: Faker::Address.full_address,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, ipsam.",
+    )
+  end
+end

@@ -23,9 +23,6 @@
             alamat
           </th>
           <th scope="col" class="px-6 py-3">
-            Provinsi
-          </th>
-          <th scope="col" class="px-6 py-3">
             <span class="sr-only">Edit</span>
           </th>
         </tr>
@@ -38,8 +35,7 @@
             </td>
             <td class="px-6 py-4"><%= kos.description %></td>
             <td class="px-6 py-4"><%= kos.alamat %></td>
-            <td class="px-6 py-4"><%= kos.provinsi %></td>
-            <td class="px-6 py-4"><%= kos %></td>
+            <td class="px-6 py-4"><%= link_to 'Lihat', kos %></td>
           </tr>
         <% end %>
       </tbody>
