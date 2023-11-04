@@ -26,18 +26,22 @@
             Provinsi
           </th>
           <th scope="col" class="px-6 py-3">
-            Dibuat Pada
-          </th>
-          <th scope="col" class="px-6 py-3">
-            Terakhir Diperbaharui
-          </th>
-          <th scope="col" class="px-6 py-3">
             <span class="sr-only">Edit</span>
           </th>
         </tr>
       </thead>
       <tbody id="kosans">
-        <%= render @kosans %>
+        <% @kosans.each do |kos| %>
+          <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600" id="<%= dom_id kos %>">
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= kos.nama %>
+            </td>
+            <td class="px-6 py-4"><%= kos.description %></td>
+            <td class="px-6 py-4"><%= kos.alamat %></td>
+            <td class="px-6 py-4"><%= kos.provinsi %></td>
+            <td class="px-6 py-4"><%= kos %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

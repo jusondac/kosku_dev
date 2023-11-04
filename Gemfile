@@ -3,12 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.0"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "foreman", "~> 0.87.2"
+gem "awesome_print", "~> 1.9"
+gem "byebug", "~> 11.1"
+gem "whenever", "~> 1.0"
+gem "ransack", "~> 4.0"
+gem "pagy", "~> 6.0"
+gem "devise", "~> 4.9"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
-
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -74,19 +77,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "foreman", "~> 0.87.2"
-
-# awesome print for every data will print perfect and nicely
-gem "awesome_print", "~> 1.9"
-
-# stop the runtime using byebug
-gem "byebug", "~> 11.1"
-
-# scheduling data and generate task
-gem "whenever", "~> 1.0"
-
-# sorting and searching model
-gem "ransack", "~> 4.0"
-
-# pagination
-gem "pagy", "~> 6.0"
+gem "image_processing", "~> 1.12"
