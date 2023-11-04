@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :names
   resources :kosans do
+    get :checked_kosans
     collection do
       get :regencies
     end

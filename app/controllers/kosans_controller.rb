@@ -6,6 +6,11 @@ class KosansController < ApplicationController
     @kosans = Kosan.all
   end
 
+  def checked_kosans
+    session[:id] = params[:kosan_id]
+    redirect_back(fallback_location: request.referer)
+  end
+
   # GET /kosans/1 or /kosans/1.json
   def show
   end
@@ -28,7 +33,6 @@ class KosansController < ApplicationController
   # POST /kosans or /kosans.json
   def create
     @kosan = Kosan.new(kosan_params)
-    byebug
     respond_to do |format|
       if @kosan.save
         format.html { redirect_to kosan_url(@kosan), notice: "Kosan baru berhasil dibuat." }
@@ -64,13 +68,14 @@ class KosansController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kosan
-      @kosan = Kosan.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def kosan_params
-      params.require(:kosan).permit(:nama, :description, :rules, :alamat, :provinsi, :kota_kabupaten)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kosan
+    @kosan = Kosan.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def kosan_params
+    params.require(:kosan).permit(:nama, :description, :rules, :alamat, :provinsi, :kota_kabupaten)
+  end
 end

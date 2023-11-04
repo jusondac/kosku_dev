@@ -11,4 +11,12 @@
   <div id="rooms" class="min-w-full">
     <%= render @rooms %>
   </div>
+
+  <div class="flex flex-wrap gap-3 mt-3">
+    <% (1..100).to_a.each do |i| %>
+      <div class="bg-green-500 h-20 w-20 flex items-center justify-center text-white rounded-xl">
+        <%= i %>
+      </div>
+    <% end  %>
+  </div>
 </div>
