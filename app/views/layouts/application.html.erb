@@ -20,12 +20,16 @@
   </head>
   <body class="dark:text-white dark:bg-gray-900">
     <%= render 'layouts/components/navbar' %>
-    <%= render 'layouts/components/sidebar' %>
-    <div class="mt-20 sm:ml-64 dark:bg-gray-700 h-[calc(100vh-5rem)] rounded-tl-2xl">
-      <div class="dark:bg-gray-700 w-full p-5 rounded-tl-2xl">
-        <%= yield %>
+    <% if current_user %>
+      <%= render 'layouts/components/sidebar' %>
+      <div class="mt-20 sm:ml-64 dark:bg-gray-700 h-[calc(100vh-5rem)] rounded-tl-2xl">
+        <div class="dark:bg-gray-700 w-full p-5 rounded-tl-2xl">
+          <%= yield %>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <h1 class="mt-20 mx-20">Home</h1>
+    <% end %> 
   </body>
   <script>
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
